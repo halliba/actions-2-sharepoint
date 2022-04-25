@@ -1,11 +1,57 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'GitHub Actions 2 SharePoint Online'
+description: 'Upload files and build artifacts from your Actions to SharePoint Online.'
+author: 'halliba'
 inputs:
-  milliseconds: # change this
+  tenantId:
+    description: 'AzureAD tenant ID'
+    default: ''
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+
+  clientId:
+    description: 'AzureAD client ID'
+    default: ''
+    required: true
+
+  clientSecret:
+    description: 'AzureAD client secret'
+    default: ''
+    required: true
+
+  driveId:
+    description: 'SharePoint Online drive ID'
+    default: ''
+    required: true
+
+  targetFolder:
+    description: 'Target folder'
+    default: ''
+    required: false
+
+  sourceFolder:
+    description: 'Source folder'
+    default: ''
+    required: false
+
+  contents:
+    description: 'Contents'
+    default: ''
+    required: true
+
+  conflictBehaviour:
+    description: 'File conflict behaviour'
+    default: 'fail'
+    required: true
+
+  cleanTargetFolder:
+    description: 'Clean Target Folder'
+    default: 'false'
+    required: true
+
+  flattenFolders:
+    description: 'Flatten Folders'
+    default: 'false'
+    required: true
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
