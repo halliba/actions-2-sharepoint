@@ -14,7 +14,7 @@ jobs:
         id: hello
         with:
           tenantId: ${{ secrets.TEST1_TENANTID }}
-          clientId: ${{ secrets.TEST1_CLIENTID }}
+          clientId: ${{ secrets.TEST1_CLIENT_ID }}
           clientSecret: ${{ secrets.TEST1_CLIENTSECRET }}
           driveId: ${{ secrets.TEST1_DRIVEID }}
           targetFolder: '/TEST_3/'
