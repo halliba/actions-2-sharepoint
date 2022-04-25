@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload files
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          tenantId: ${{ secrets.TEST1_TENANTID }}
+          clientId: ${{ secrets.TEST1_CLIENTID }}
+          clientSecret: ${{ secrets.TEST1_CLIENTSECRET }}
+          driveId: ${{ secrets.TEST1_DRIVEID }}
+          targetFolder: '/TEST_3/'
+          sourceFolder: './'
+          contents: '**'
+          conflictBehaviour: 'fail'
+          cleanTargetFolder: 'true'
+          flattenFolders: 'false'
