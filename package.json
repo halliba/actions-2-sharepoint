@@ -1,0 +1,31 @@
+{
+  "name": "actions-2-sharepoint",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build ./src/main.ts -o ./dist/ --source-map --license licenses.txt",
+    "all": "yarn run build && yarn run lint && yarn run package"
+  },
+  "author": "halliba",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.7.0",
+    "@azure/msal-node": "^1.8.0",
+    "@microsoft/microsoft-graph-client": "^3.0.2",
+    "@microsoft/microsoft-graph-types": "^2.19.0",
+    "cross-fetch": "^3.1.5",
+    "glob": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "@vercel/ncc": "^0.33.4",
+    "eslint": "^8.14.0",
+    "typescript": "^4.6.3"
+  },
+  "packageManager": "yarn@3.2.0"
+}

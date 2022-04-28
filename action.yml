@@ -1,0 +1,59 @@
+name: 'GitHub Actions 2 SharePoint Online'
+description: 'Upload files and build artifacts from your Actions to SharePoint Online.'
+author: 'halliba'
+branding:
+  icon: 'upload'
+inputs:
+  tenant-id:
+    description: 'AzureAD tenant ID'
+    default: ''
+    required: true
+
+  client-id:
+    description: 'AzureAD client ID'
+    default: ''
+    required: true
+
+  client-secret:
+    description: 'AzureAD client secret'
+    default: ''
+    required: true
+
+  drive-id:
+    description: 'SharePoint Online drive ID'
+    default: ''
+    required: true
+
+  target-folder:
+    description: 'Target folder'
+    default: ''
+    required: false
+
+  source-folder:
+    description: 'Source folder'
+    default: ''
+    required: false
+
+  contents:
+    description: 'Contents'
+    default: ''
+    required: true
+
+  conflict-behaviour:
+    description: 'File conflict behaviour'
+    default: 'fail'
+    required: true
+
+  clean-target-folder:
+    description: 'Clean target folder'
+    default: 'false'
+    required: true
+
+  flatten-folders:
+    description: 'Flatten folders'
+    default: 'false'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
