@@ -1,0 +1,26 @@
+name: 'test-action'
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test_action:
+    runs-on: ubuntu-latest
+    name: A job to test the action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload files
+        uses: ./
+        with:
+          tenant-id: '${{ secrets.TENANTID }}'
+          client-id: '${{ secrets.CLIENTID }}'
+          client-secret: '${{ secrets.CLIENTSECRET }}'
+          drive-id: '${{ secrets.DRIVEID }}'
+          target-folder: '/actions-2-sharepoint/${{ github.run_id }}/'
+          source-folder: '${{ github.workspace }}/dist'
+          contents: '**'
+          conflict-behaviour: 'replace'
+          clean-target-folder: 'false'
+          flatten-folders: 'false'
